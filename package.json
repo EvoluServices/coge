@@ -1,7 +1,7 @@
 {
-  "name": "coge",
-  "version": "0.0.1",
-  "description": "coge CLI",
+  "name": "@evoluservices/coge",
+  "version": "0.0.2",
+  "description": "CLI to generate react components",
   "types": "build/types/types.d.ts",
   "bin": {
     "coge": "bin/coge"
@@ -11,7 +11,7 @@
     "lint": "tslint -p .",
     "clean-build": "rm -rf ./build",
     "compile": "tsc -p .",
-    "copy-templates": "if [ -e ./src/templates ]; then cp -a ./src/templates ./build/; fi",
+    "copy-templates": "cp -a ./src/templates ./build/",
     "build": "yarn format && yarn lint && yarn clean-build && yarn compile && yarn copy-templates",
     "prepublishOnly": "yarn build",
     "test": "jest",
