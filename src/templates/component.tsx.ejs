@@ -1,5 +1,27 @@
 import React from 'react';
+import { makeStyles, Theme } from '@material-ui/core/styles';
 
-export default function <%= props.name %>() {
-  return <div>Component</div>;
+type Props = {
+  optionalStringProp?: string;
+  requiredNumberProp: number;
+};
+
+const useStyles = makeStyles((theme: Theme) => ({
+  root: {
+    backgroundColor: '#ff00ff',
+  },
+}));
+
+export default function <%= props.name %>({
+  optionalStringProp = 'Default value',
+  requiredNumberProp,
+}: Props) {
+  const classes = useStyles();
+  return (
+    <div className={classes.root}>
+      <p>Component props:</p>
+      <p>optionalStringProp = {optionalStringProp}</p>
+      <p>requiredNumberProp = {requiredNumberProp}</p>
+    </div>
+  );
 }

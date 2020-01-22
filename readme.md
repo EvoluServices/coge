@@ -1,6 +1,6 @@
 # coge CLI
 
-A CLI for coge.
+CLI to generate react components.
 
 ## Customizing your CLI
 
@@ -15,11 +15,9 @@ $ npm login
 $ npm whoami
 $ npm lint
 $ npm test
-(if typescript, run `npm run build` here)
-$ npm publish
+$ npm publish --access public
 ```
 
 # License
 
 MIT - see LICENSE
-
