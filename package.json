@@ -1,6 +1,6 @@
 {
   "name": "@evoluservices/coge",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "CLI to generate react components",
   "types": "build/types/types.d.ts",
   "bin": {

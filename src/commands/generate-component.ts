@@ -9,7 +9,11 @@ module.exports = {
     } = toolbox;
 
     const name = parameters.first;
-    const { storyGroup, folder = 'src/components' } = parameters.options;
+    const {
+      storyGroup,
+      folder = 'src/components',
+      themeDir
+    } = parameters.options;
 
     const filesFolder = `${folder}/${name}`;
 
@@ -30,7 +34,7 @@ module.exports = {
     await template.generate({
       template: 'stories.tsx.ejs',
       target: `${filesFolder}/${name}.stories.tsx`,
-      props: { name, storyGroup }
+      props: { name, storyGroup, themeDir }
     });
     spinner.succeed('Stories file generated!');
 

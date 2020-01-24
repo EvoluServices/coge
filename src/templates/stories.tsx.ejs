@@ -1,4 +1,6 @@
 import React from 'react';
+<% if (props.themeDir){ %>import ThemeProvider from '<%= props.themeDir%>/ThemeProvider'
+<%}%>
 import <%= props.name %> from './<%= props.name %>';
 
 export default {
@@ -6,6 +8,9 @@ export default {
   parameters: {
     componentSubtitle: 'Component subtitle (brief description of its purpose)'
   },
+  <% if (props.themeDir){ %>decorators: [
+    (storyFn: any) => <ThemeProvider>{storyFn()}</ThemeProvider>,
+  ],<%}%>
   component: <%= props.name %>,
 };
 
