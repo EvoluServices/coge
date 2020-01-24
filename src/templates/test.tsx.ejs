@@ -4,6 +4,6 @@ import <%= props.name %> from './<%= props.name %>';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<<%= props.name %> />, div);
+  ReactDOM.render(<<%= props.name %> requiredNumberProp={42} />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
