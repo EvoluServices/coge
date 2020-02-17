@@ -1,9 +1,32 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactTestRenderer from 'react-test-renderer';
+import simulateMobileViewport from '../../utils/test/simulateMobileViewport';
+import createNodeMock from '../../utils/test/createNodeMock';
+
 import <%= props.name %> from './<%= props.name %>';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<<%= props.name %> requiredNumberProp={42} />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe('<%= props.name %>', () => {
+  it('renders on desktop', () => {
+    const tree = ReactTestRenderer.create(
+      <<%= props.name %> requiredNumberProp={42} />,
+      {
+        createNodeMock,
+      }
+    );
+
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+
+  it('renders on mobile', () => {
+    simulateMobileViewport();
+
+    const tree = ReactTestRenderer.create(
+      <<%= props.name %> requiredNumberProp={42} />,
+      {
+        createNodeMock,
+      }
+    );
+
+    expect(tree.toJSON()).toMatchSnapshot();
+  });
+})
