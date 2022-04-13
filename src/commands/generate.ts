@@ -25,7 +25,7 @@ module.exports = {
       props: { name },
     })
 
-    await append('packages/design-system/index.tsx', `export * from "./${name}"\n`)
+    await append('packages/design-system/index.tsx', `export * from "./${name}";\n`)
 
     info(`Generated component ${name}`)
   },
