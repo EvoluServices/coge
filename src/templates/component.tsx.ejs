@@ -1,0 +1,23 @@
+import Mui<%= props.name %> from '@mui/material/<%= props.name %>'
+
+export interface <%= props.name %>Props {
+  /**
+   * Description of the prop
+   */
+  stringProp: string;
+  /**
+   * Description of the prop
+   */
+  optionalNumberProp?: number;
+}
+
+export const <%= props.name %> = ({ stringProp, optionalNumberProp = 1 }: <%= props.name %>Props) => {
+  return (
+    <div>
+      <p>Component name: <%= props.name %></p>
+      <p>stringProp: {stringProp}</p>
+      <p>optionalNumberProp: {optionalNumberProp}</p>
+    </div>
+  )
+}
+

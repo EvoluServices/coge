@@ -1,0 +1,21 @@
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+import { <%= props.name %> } from '../<%= props.name %>';
+
+export default {
+  title: '<group_here>/<%= props.name %>',
+  component: <%= props.name %>,
+} as ComponentMeta<typeof <%= props.name %>>
+
+const Template: ComponentStory<typeof <%= props.name %>> = (args) => <<%= props.name %> {...args} />;
+
+export const FirstStory = Template.bind({});
+FirstStory.args = {
+  stringProp: 'First story string prop!',
+};
+
+export const SecondStory = Template.bind({});
+SecondStory.args = {
+  stringProp: 'Second story string prop!',
+  optionalNumberProp: 2,
+};
