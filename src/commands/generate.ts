@@ -17,7 +17,7 @@ module.exports = {
     let spinner = spin('Gerando o componente')
     await generate({
       template: 'component.tsx.ejs',
-      target: `packages/design-system/${name}.tsx`,
+      target: `packages/design-system/components/${name}/${name}.tsx`,
       props: { name },
     })
     spinner.succeed()
@@ -25,13 +25,13 @@ module.exports = {
     spinner = spin('Gerando as histórias')
     await generate({
       template: 'stories.tsx.ejs',
-      target: `packages/design-system/stories/${name}.stories.tsx`,
+      target: `packages/design-system/components/${name}/${name}.stories.tsx`,
       props: { name },
     })
     spinner.succeed()
 
     spinner = spin('Exportando o componente')
-    await append('packages/design-system/index.tsx', `export * from "./${name}";\n`)
+    await append('packages/design-system/index.tsx', `export * from './components/${name}/${name}';\n`)
     spinner.succeed()
 
     success('\nUhul! Tudo certo. Partiu customizar ele 🚀')
